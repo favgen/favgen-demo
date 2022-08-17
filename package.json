@@ -13,6 +13,7 @@
   "dependencies": {
     "@vitejs/plugin-vue": "^3.0.1",
     "normalize.css": "^8.0.1",
+    "primeicons": "^5.0.0",
     "primevue": "^3.16.0",
     "sass": "^1.54.4",
     "the-new-css-reset": "^1.7.3",
