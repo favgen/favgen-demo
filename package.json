@@ -2,28 +2,14 @@
   "name": "favgen-demo",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173",
     "huskify": "husky install && husky add .husky/pre-commit 'npx lint-staged' && git add .husky/pre-commit",
     "stylelint": "stylelint --fix --ignore-path .gitignore --cache",
     "lint": "eslint --ext .js,.cjs,.mjs,.ts,.cts,.mts --fix --ignore-path .gitignore --cache",
     "prettify": "prettier --write --ignore-path .gitignore --plugin-search-dir=."
   },
-  "dependencies": {
-    "@vitejs/plugin-vue": "^3.0.1",
-    "normalize.css": "^8.0.1",
-    "primeicons": "^5.0.0",
-    "primevue": "^3.16.0",
-    "sass": "^1.54.4",
-    "the-new-css-reset": "^1.7.3",
-    "vite": "^3.0.4",
-    "vue": "^3.2.37"
-  },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
     "@vue/eslint-config-prettier": "^7.0.0",
-    "autoprefixer": "^10.4.8",
     "eslint": "^8.22.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
@@ -35,5 +21,9 @@
     "stylelint": "^14.10.0",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-standard-scss": "^5.0.0"
-  }
+  },
+  "workspaces": [
+    "packages/client",
+    "packages/server"
+  ]
 }
