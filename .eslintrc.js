@@ -12,4 +12,16 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
+  rules: {
+    "import/extensions": [
+      "error",
+      {
+        js: "ignorePackages",
+      },
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { packageDir: [".", "./packages/client", "./packages/server"] },
+    ],
+  },
 };

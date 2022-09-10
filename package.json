@@ -7,6 +7,9 @@
     "lint": "eslint --ext .js,.cjs,.mjs,.ts,.cts,.mts --fix --ignore-path .gitignore --cache",
     "prettify": "prettier --write --ignore-path .gitignore --plugin-search-dir=."
   },
+  "dependencies": {
+    "jszip": "^3.10.1"
+  },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
     "@vue/eslint-config-prettier": "^7.0.0",
