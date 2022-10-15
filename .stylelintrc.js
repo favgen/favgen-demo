@@ -14,5 +14,11 @@ module.exports = {
     "custom-property-pattern": namingPattern,
     "scss/dollar-variable-pattern": namingPattern,
     "value-keyword-case": ["lower", { ignoreProperties: ["composes"] }],
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        ignoreAtRules: ["tailwind"],
+      },
+    ],
   },
 };

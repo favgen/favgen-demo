@@ -23,5 +23,6 @@ module.exports = {
       "error",
       { packageDir: [".", "./packages/client", "./packages/server"] },
     ],
+    "consistent-return": "off",
   },
 };
