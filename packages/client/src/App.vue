@@ -45,9 +45,15 @@ function submitForm() {
         Object.values(zip.files).map(async (file) => {
           return {
             name: file.name,
-            url: await file
-              .async("blob")
-              .then((blob) => URL.createObjectURL(blob)),
+            url: await file.async("blob").then((blob) => {
+              // If there is no type on svg blob, then it is rendered incorrectly
+              const finalBlob =
+                !blob.type && file.name.endsWith(".svg")
+                  ? blob.slice(0, blob.size, "image/svg+xml")
+                  : blob;
+
+              return URL.createObjectURL(finalBlob);
+            }),
           };
         }),
       );
