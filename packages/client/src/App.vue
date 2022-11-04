@@ -15,6 +15,7 @@ const form = reactive({
   prefix: "favicon",
   colorsPaletteSize: 64,
   include16: false,
+  error: null,
 });
 
 function saveFile(file, filename) {
@@ -23,7 +24,10 @@ function saveFile(file, filename) {
 
 function submitForm() {
   if (!form.image) {
-    alert("no file is given!");
+    form.error = "No file is given!";
+    setTimeout(() => {
+      form.error = null;
+    }, 3000);
     return;
   }
 
@@ -119,7 +123,13 @@ function submitForm() {
         </div>
       </section>
 
-      <button class="btn" @click.prevent="submitForm">Generate</button>
+      <button class="btn px-6 mb-6" @click.prevent="submitForm">
+        Generate
+      </button>
+
+      <p v-if="form.error" class="error" aria-live="assertive">
+        {{ form.error }}
+      </p>
     </form>
 
     <section v-if="generatedIcons.files.length">
@@ -208,6 +218,10 @@ form {
 .btn {
   height: 4rem;
   font-size: 1.6rem;
+}
+
+.error {
+  color: #e63946;
 }
 
 .generated-icon-cell {
