@@ -72,19 +72,21 @@ const { isOverDropZone } = useDropZone(dropZoneRef, handleDrop);
     </section>
 
     <section class="choose-file">
-      <label v-if="!modelValue" :for="id" class="file-field">
-        <span class="btn file-btn">Choose a file</span>
+      <div class="form-control w-full">
+        <label class="label" :for="id">
+          <span class="label-text choose-file__label-text">Pick a file</span>
+        </label>
         <input
-          :id="id"
           type="file"
+          :id="id"
+          class="file-input file-input-bordered w-full choose-file__input"
           :accept="accept"
           :name="name"
           autocomplete="off"
-          class="file-input"
           :aria-describedby="errorId"
           @input="handleInput"
         />
-      </label>
+      </div>
       <span v-if="isError" :id="errorId" class="error" aria-live="assertive">
         {{ errorMsg }}
       </span>
@@ -146,41 +148,16 @@ const { isOverDropZone } = useDropZone(dropZoneRef, handleDrop);
 }
 
 .choose-file {
-  --button-height: 4rem;
-
   display: grid;
-  grid-template: var(--button-height) / 100%;
   justify-items: start;
   row-gap: 1rem;
-}
 
-.file-input {
-  width: 100%;
-  height: 100%;
-  grid-row: 1;
-  grid-column: 1;
-  opacity: 0;
-  overflow: hidden;
-}
-
-.file-btn {
-  width: 100%;
-  height: 100%;
-  grid-row: 1;
-  grid-column: 1;
-  display: grid;
-  place-content: center;
-  font-size: 1.6rem;
-  line-height: 0;
-  cursor: pointer;
-  z-index: 1; /* this will make cursor: pointer for the whole area */
-
-  .file-field:focus-within & {
-    outline: 0.25rem solid var(--color-dark);
+  &__label-text {
+    font-size: 1.6rem;
   }
 
-  .file-field:hover & {
-    transform: scale(1.05);
+  &__input {
+    font-size: 1.6rem;
   }
 }
 
@@ -191,11 +168,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, handleDrop);
 
 .btn-remove {
   width: 100%;
-  height: var(--button-height);
-  font-size: 1.6rem;
-
-  &:focus {
-    outline: 0.2rem solid var(--color-dark);
-  }
+  height: 3rem;
+  font-size: 1.4rem;
 }
 </style>
