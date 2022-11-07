@@ -76,7 +76,7 @@ function submitForm() {
     <form class="mb-16">
       <h2>Fill the form and generate favicons</h2>
 
-      <section class="fields w-96">
+      <section class="fields">
         <ImageInput
           id="input-file"
           title="title"
@@ -186,7 +186,7 @@ h1 {
 
 h2 {
   font-size: 3.2rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 form {
@@ -196,12 +196,17 @@ form {
 .fields {
   display: grid;
   row-gap: 1.8rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2.4rem;
+  width: 30rem;
 }
 
 .label-text,
 .input {
-  font-size: 1.6rem;
+  font-size: var(--font-size--default);
+}
+
+.input {
+  height: 3.6rem;
 }
 
 .field {
@@ -222,7 +227,7 @@ form {
 
 .btn {
   height: 4rem;
-  font-size: 1.6rem;
+  font-size: var(--font-size--default);
 }
 
 .error {

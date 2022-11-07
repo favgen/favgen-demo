@@ -112,7 +112,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, handleDrop);
 .wrapper {
   display: grid;
   grid-template-columns: 100%;
-  row-gap: 1.2rem;
+  row-gap: 1.4rem;
 }
 
 .dropzone {
@@ -160,11 +160,17 @@ const { isOverDropZone } = useDropZone(dropZoneRef, handleDrop);
   row-gap: 1rem;
 
   &__label-text {
-    font-size: 1.6rem;
+    font-size: var(--font-size--default);
   }
 
   &__input {
-    font-size: 1.6rem;
+    font-size: var(--font-size--default);
+    height: 3.6rem;
+
+    &::file-selector-button {
+      font-size: 1.2rem;
+      height: 3.6rem;
+    }
   }
 }
 
@@ -175,7 +181,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, handleDrop);
 
 .btn-remove {
   width: 100%;
-  height: 3rem;
-  font-size: 1.4rem;
+  height: 3.6rem;
+  font-size: var(--font-size--default);
 }
 </style>
