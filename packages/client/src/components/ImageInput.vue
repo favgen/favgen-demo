@@ -146,6 +146,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, handleDrop);
   }
 
   &__image-name {
+    word-break: break-all;
     margin-bottom: 1.5rem;
   }
 

@@ -1,0 +1,11 @@
+@mixin respond-to-medium-screen {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin respond-to-small-screen {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
