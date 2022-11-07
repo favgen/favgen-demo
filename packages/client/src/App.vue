@@ -18,6 +18,10 @@ const form = reactive({
   error: null,
 });
 
+function validateFile(file) {
+  return file.type.startsWith("image/");
+}
+
 function saveFile(file, filename) {
   saveAs(file, filename);
 }
@@ -79,9 +83,10 @@ function submitForm() {
           accept="image/*"
           name="input-file"
           v-model="form.image"
-          errorMsg="error"
+          errorMsg="Invalid file was
+        provided!"
           removeMsg="remove"
-          :validateFn="() => true"
+          :validateFn="validateFile"
         />
 
         <div class="form-control">
@@ -221,7 +226,7 @@ form {
 }
 
 .error {
-  color: #e63946;
+  color: var(--color-alert);
 }
 
 .generated-icon-cell {

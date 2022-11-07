@@ -19,13 +19,20 @@ const dropZoneRef = ref(null);
 function isValidFile(file) {
   return Boolean(file && props.validateFn && props.validateFn(file));
 }
-const isError = computed(
-  () => props.modelValue && !isValidFile(props.modelValue.file),
-);
+const isError = ref(false);
 
 function handleNewFile(file) {
-  if (!isValidFile(file)) return;
+  if (!isValidFile(file)) {
+    isError.value = true;
+    if (props.modelValue) {
+      setTimeout(() => {
+        isError.value = false;
+      }, 3000);
+    }
+    return;
+  }
 
+  isError.value = false;
   emit("update:modelValue", { file, url: URL.createObjectURL(file) });
 }
 
