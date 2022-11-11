@@ -8,6 +8,6 @@ COPY packages/server/ ./packages/server
 RUN npm ci --omit=dev -w=./packages/server
 RUN npm ci --omit=dev
 
-EXPOSE 8080
+EXPOSE 5000
 
 CMD [ "npm", "start", "--workspace=./packages/server" ]
