@@ -1,0 +1,13 @@
+FROM node:16
+
+WORKDIR /usr/app
+
+COPY package*.json ./
+COPY packages/server/ ./packages/server
+
+RUN npm ci --omit=dev -w=./packages/server
+RUN npm ci --omit=dev
+
+EXPOSE 8080
+
+CMD [ "npm", "start", "--workspace=./packages/server" ]
